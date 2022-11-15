@@ -268,8 +268,8 @@ ItemDisplay[(amb OR amc OR amd OR ame) NMAG (TABSK0>2 OR TABSK2>2)]:%NAME% %WHIT
 ItemDisplay[ILVL<78 CL3 NMAG RES>34]:%NAME% %WHITE%<%ORANGE%Res%WHITE%>
 ItemDisplay[(pab OR pac) NMAG RES>34]:%NAME% %WHITE%<%ORANGE%Res%WHITE%>
 // Shield Damage
-ItemDisplay[ILVL<78 CL3 NMAG ITEMSTAT17>50]:%NAME% %WHITE%<%ORANGE%Dmg%WHITE%>
-ItemDisplay[(pab OR pac) NMAG ITEMSTAT17>50]:%NAME% %WHITE%<%ORANGE%Dmg%WHITE%>
+ItemDisplay[ILVL<78 CL3 NMAG AR>50]:%NAME% %WHITE%<%ORANGE%Dmg%WHITE%>
+ItemDisplay[(pab OR pac) NMAG AR>50]:%NAME% %WHITE%<%ORANGE%Dmg%WHITE%>
 // Skill Scepters
 ItemDisplay[WP13 NMAG SK121>2]:%NAME% %WHITE%<%ORANGE%FoH%WHITE%>
 ItemDisplay[WP13 NMAG SK101>2]:%NAME% %WHITE%<%ORANGE%HB%WHITE%>
@@ -393,7 +393,7 @@ ItemDisplay[(ush OR uit) NMAG]:%NAME% %WHITE%<%TAN%*%WHITE%>
 // As a personal preference, I like my colors to be consistent along the filter, and the currency color is PURPLE.
 // So, while this creates a rule that 99.9% of time will be skipped by the dropped items, I still want stuff to look good.
 // Includes: Keys, Organs, Token of Absolution, Essences, Orb of Corruption, Maps, Key of Chaos, Orb of Enchantment (whatever that is)
-ItemDisplay[pk1 OR pk2 OR pk3 OR dhn OR bey OR mbr OR toa OR tes OR ceh OR bet OR fed OR cx5 OR ma1 OR ma2 OR ma3 OR ma4 OR ma5 OR ma6 OR ma7 OR ma8 OR ma9 OR ma10 OR maz OR cx7 OR cx8]:%PURPLE%%NAME% %GRAY%<%RED%**%GRAY%>%TAN%
+ItemDisplay[pk1 OR pk2 OR pk3 OR dhn OR bey OR mbr OR toa OR tes OR ceh OR bet OR fed]:%PURPLE%%NAME% %GRAY%<%RED%**%GRAY%>%TAN%
 
 // ## Magic Items ##
 
@@ -420,9 +420,9 @@ ItemDisplay[(xlg OR ulg) MAG]:%NAME%%PURPLE% <%ORANGE%Ort%PURPLE%> %GRAY%[%WHITE
 ItemDisplay[(zvb OR uvc) MAG]:%NAME%%PURPLE% <%ORANGE%Ith%PURPLE%> %GRAY%[%WHITE%%ILVL%%GRAY%]%BLUE%
 // - Safety -
 // Belt - Demonhide Sash, Spiderweb Sash
-ItemDisplay[(zlb OR ulc) MAG]:%NAME%%DGREEN% <%ORANGE%Tal%DGREEN%> %GRAY%[%WHITE%%ILVL%%GRAY%]%BLUE%
+ItemDisplay[(zlb OR ulc) MAG]:%NAME%%GREEN% <%ORANGE%Tal%GREEN%> %GRAY%[%WHITE%%ILVL%%GRAY%]%BLUE%
 // Shield - Monarch
-ItemDisplay[uit MAG]:%NAME%%DGREEN% <%ORANGE%Nef%DGREEN%> %GRAY%[%WHITE%%ILVL%%GRAY%]%BLUE%
+ItemDisplay[uit MAG]:%NAME%%GREEN% <%ORANGE%Nef%GREEN%> %GRAY%[%WHITE%%ILVL%%GRAY%]%BLUE%
 
 // # Show Identified Items #
 // So nothing we do after this applies to the stuff that was already ID'd
@@ -439,7 +439,7 @@ ItemDisplay[(rin OR amu) MAG]:%NAME% %GRAY%[%WHITE%%ILVL%%GRAY%]%BLUE%
 
 // # Quivers #
 // Magic Arrows and Bolts
-ItemDisplay[(aq2 OR cq2) MAG DIFF=0]:%NAME%
+ItemDisplay[(aqv OR cqv) MAG DIFF=0]:%NAME%
 
 // # Charms #
 // Breakpoint levels - 91 for small and large charms
@@ -483,7 +483,7 @@ ItemDisplay[jew RARE]:%NAME% %GRAY%<%RED%*%GRAY%>%YELLOW%
 
 // # Quivers #
 // Arrows and Bolts
-ItemDisplay[(aq2 OR cq2) RARE]:%NAME% %GRAY%<%RED%*%GRAY%>%YELLOW%
+ItemDisplay[(aqv OR cqv) RARE]:%NAME% %GRAY%<%RED%*%GRAY%>%YELLOW%
 
 // # Circlets #
 // Circlets with higher ilvl than 89 are important, since they spawn +2 to classkills
