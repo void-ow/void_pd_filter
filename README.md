@@ -1,2 +1,2 @@
-# void_pod_filter
-Private PoD filter
+# void_pd_filter
+Private PD2 filter
