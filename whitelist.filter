@@ -72,19 +72,19 @@ ItemDisplay[aqv OR cqv OR gpm OR opm OR opl OR ops OR gps OR gpl]:
 // # Gems #
 // Non-flawless gems - Not needed for rune upgrades anymore, but still, might be good to plop them while levelling
 // Flawless gems start dropping from Nightmare, at that point we should hide the inferior ones.
-ItemDisplay[GEMLEVEL=1 CLVL<11]:%ORANGE%Chipped
-ItemDisplay[GEMLEVEL=2 CLVL<16]:%ORANGE%Flawed
-ItemDisplay[GEMLEVEL=3 DIFF<1]:%ORANGE%%NAME%
-ItemDisplay[GEMLEVEL>0 GEMLEVEL<4]:
+ItemDisplay[GEM=1 CLVL<11]:%ORANGE%Chipped
+ItemDisplay[GEM=2 CLVL<16]:%ORANGE%Flawed
+ItemDisplay[GEM=3 DIFF<1]:%ORANGE%%NAME%
+ItemDisplay[GEM>0 GEM<4]:
 // Flawless Gems - Gems are not created equal, some are needed in crafting and some are not. Additionally, some of them are skulls
 // Crafting Gems - Ruby, Amethyst, Sapphire, Emerald
-ItemDisplay[gzv OR glb OR glg OR glr OR skl]:%ORANGE%Gem+%WHITE%
+ItemDisplay[gzv OR glb OR glg OR glr OR skl]:%ORANGE%G+%WHITE%
 // Remaining Gems
 // Literally no use for them in the endgame - so we should stop showing them there
-ItemDisplay[GEMLEVEL=4 CLVL<80]:%ORANGE%Gem%WHITE%
-ItemDisplay[GEMLEVEL=4]:
+ItemDisplay[GEM=4 CLVL<80]:%ORANGE%G%WHITE%
+ItemDisplay[GEM=4]:
 // Perfect Gems - no need for special distinction, in my opinion.
-ItemDisplay[GEMLEVEL=5]:%ORANGE%%NAME%
+ItemDisplay[gpv OR gpy OR gpb OR gpg OR gpr OR gpw OR skz]:%ORANGE%Gem%WHITE%
 // # Runes #
 // Crafting Runes 4-10
 ItemDisplay[RUNE>3 RUNE<11]:%ORANGE%%NAME%%GRAY% <%ORANGE%c%GRAY%> %WHITE%[%ORANGE%%RUNENUM%%WHITE%]%ORANGE%
@@ -544,4 +544,4 @@ ItemDisplay[EXC (ARMOR OR WEAPON) ILVL<78]:%NAME%
 ItemDisplay[ELT (ARMOR OR WEAPON) ILVL<85]:%NAME%
 // The whitelist's backbone - hiding everything, including non-equipment equipment items - charms and arrows.
 // Scary stuff - anything not mentioned in all of the previous rules will be hidden from sight.
-ItemDisplay[ARMOR OR WEAPON OR rin OR amu OR jew OR cm1 OR cm2 OR cm3 OR aq2 OR cq2]:
+ItemDisplay[ARMOR OR WEAPON OR rin OR amu OR jew OR cm1 OR cm2 OR cm3 OR aqv OR cqv]:
