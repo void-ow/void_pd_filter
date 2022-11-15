@@ -26,28 +26,28 @@ ItemDisplay[isc]:
 ItemDisplay[hp1 CLVL<11]:%RED%hp %GRAY%1%WHITE%
 ItemDisplay[hp1]: 
 // Light Healing Potion - show throughout all Normal
-ItemDisplay[hp2 DIFFICULTY=0]:%RED%hp %WHITE%2
+ItemDisplay[hp2 DIFF=0]:%RED%hp %WHITE%2
 ItemDisplay[hp2]:
 // Healing Potion - show throughout all Normal
-ItemDisplay[hp3 DIFFICULTY=0]:%RED%hp %BLUE%3%WHITE%
+ItemDisplay[hp3 DIFF=0]:%RED%hp %BLUE%3%WHITE%
 ItemDisplay[hp3]:
 // Greater Healing Potion - show throughout all Nightmare
-ItemDisplay[hp4 DIFFICULTY<2]:%RED%hp%WHITE%
+ItemDisplay[hp4 DIFF<2]:%RED%hp%WHITE%
 ItemDisplay[hp4]:
 // Lesser Mana Potion - show until act 3 Normal
 ItemDisplay[mp1 CLVL<16]:%BLUE%mp %GRAY%1%WHITE%
 ItemDisplay[mp1]:
 // Light Mana Potion - show throughout all Normal
-ItemDisplay[mp2 DIFFICULTY=0]:%BLUE%mp %WHITE%2
+ItemDisplay[mp2 DIFF=0]:%BLUE%mp %WHITE%2
 ItemDisplay[mp2]:
 // Mana Potion - show throughout all Normal
-ItemDisplay[mp3 DIFFICULTY=0]:%BLUE%mp %BLUE%3%WHITE%
+ItemDisplay[mp3 DIFF=0]:%BLUE%mp %BLUE%3%WHITE%
 ItemDisplay[mp3]:
 // Greater Mana Potion - show throughout all Nightmare
-ItemDisplay[mp4 DIFFICULTY<2]:%BLUE%mp%WHITE%
+ItemDisplay[mp4 DIFF<2]:%BLUE%mp%WHITE%
 ItemDisplay[mp4]:
 // Small rejuvenation potion - show throughout all Nightmare
-ItemDisplay[rvs DIFFICULTY<2]:%PURPLE%rp%WHITE%
+ItemDisplay[rvs DIFF<2]:%PURPLE%rp%WHITE%
 ItemDisplay[rvs]:
 
 // # Hide utility potions & keys #
@@ -74,7 +74,7 @@ ItemDisplay[aqv OR cqv OR gpm OR opm OR opl OR ops OR gps OR gpl]:
 // Flawless gems start dropping from Nightmare, at that point we should hide the inferior ones.
 ItemDisplay[GEMLEVEL=1 CLVL<11]:%ORANGE%Chipped
 ItemDisplay[GEMLEVEL=2 CLVL<16]:%ORANGE%Flawed
-ItemDisplay[GEMLEVEL=3 DIFFICULTY<1]:%ORANGE%%NAME%
+ItemDisplay[GEMLEVEL=3 DIFF<1]:%ORANGE%%NAME%
 ItemDisplay[GEMLEVEL>0 GEMLEVEL<4]:
 // Flawless Gems - Gems are not created equal, some are needed in crafting and some are not. Additionally, some of them are skulls
 // Crafting Gems - Ruby, Amethyst, Sapphire, Emerald
@@ -439,7 +439,7 @@ ItemDisplay[(rin OR amu) MAG]:%NAME% %GRAY%[%WHITE%%ILVL%%GRAY%]%BLUE%
 
 // # Quivers #
 // Magic Arrows and Bolts
-ItemDisplay[(aq2 OR cq2) MAG DIFFICULTY=0]:%NAME%
+ItemDisplay[(aq2 OR cq2) MAG DIFF=0]:%NAME%
 
 // # Charms #
 // Breakpoint levels - 91 for small and large charms
@@ -527,7 +527,7 @@ ItemDisplay[UNI OR SET]:%NAME%
 
 // # Item Rarity Rules #
 // Starting from Nightmare, don't show irrelevant magic items.
-ItemDisplay[(ARMOR OR WEAPON) MAG DIFFICULTY>0]:
+ItemDisplay[(ARMOR OR WEAPON) MAG DIFF>0]:
 // # Leg rule #
 // Wirt's Leg exception, since we actually want to see it
 ItemDisplay[leg]:%NAME%
