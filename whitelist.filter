@@ -1,4 +1,4 @@
-// Void's Whitelist Filter - Season 12 Certified
+// Void's Whitelist Filter - Season 14 Certified
 
 // Name Markers - Tier3 - White, Tier2 - Red, Tier3 - Purple, Special - Orange
 // gray - 1b
@@ -194,6 +194,8 @@ ItemDisplay[SUP ED>9 ED<14]:%GRAY%[%ORANGE%S*%GRAY%] %NAME%%WHITE%{%NAME%}%CONTI
 ItemDisplay[SUP ED<10]:%GRAY%[%YELLOW%S%GRAY%] %NAME%%WHITE%{%NAME%}%CONTINUE%
 // # Sockets #
 ItemDisplay[SOCK>0]:%NAME% %GRAY%(%WHITE%%SOCKETS%%GRAY%){%NAME%}%CONTINUE%
+// # Grail #
+ItemDisplay[(UNI OR SET) !ALLOWNED]:%NAME% %GRAY%(%YELLOW%*%GRAY%){%NAME%}%CONTINUE%
 
 // # Runewords #
 ItemDisplay[RW]:%NAME%
@@ -220,12 +222,14 @@ ItemDisplay[WP13 NMAG SK112>2]:%NAME% %GRAY%[%ORANGE%BHammer%GRAY%]%WHITE%%CONTI
 ItemDisplay[WP13 NMAG SK102>2]:%NAME% %GRAY%[%ORANGE%HFire%GRAY%]%WHITE%%CONTINUE%
 ItemDisplay[WP13 NMAG SK114>2]:%NAME% %GRAY%[%ORANGE%HFreeze%GRAY%]%WHITE%%CONTINUE%
 ItemDisplay[WP13 NMAG SK118>2]:%NAME% %GRAY%[%ORANGE%HShock%GRAY%]%WHITE%%CONTINUE%
+ItemDisplay[WP13 NMAG SK99>2]:%NAME% %GRAY%[%ORANGE%Prayer%GRAY%]%WHITE%%CONTINUE%
 // Strict:
 // Fist of the Heavens + Holy Bolt + Useful Skill 
 // Fist of the Heavens + Conviction + Useful Skill 
 // Blessed Hammer + Concentration + Useful Skill
 ItemDisplay[WP13 NMAG (SOCK=3 OR SOCK=0) ((SK121>2 SK101>2) OR (SK112>2 SK113>2) OR (SK121>2 SK123>2)) (SK107>0 OR SK109>0 OR SK115>0 OR SK117>0 OR SK120>0 OR SK124>0 OR SK123>0)]:%NAME% %GRAY%[%ORANGE%!%GRAY%]%WHITE%
-ItemDisplay[WP13 NMAG FILTLVL<2 (SK101>1 OR SK112>1 OR SK102>1 OR SK114>1 OR SK118>1 OR SK121>1)]:%NAME% %GRAY%[%ORANGE%?%GRAY%]%WHITE%
+ItemDisplay[WP13 NMAG SK99>2 SK118>2]:%NAME% %GRAY%[%ORANGE%!%GRAY%]%WHITE%
+ItemDisplay[WP13 NMAG FILTLVL<2 (SK101>1 OR SK112>1 OR SK102>1 OR SK114>1 OR SK118>1 OR SK121>1 OR SK99>1)]:%NAME% %GRAY%[%ORANGE%?%GRAY%]%WHITE%
 // - Barbarian Items -
 // Skill Helmets
 ItemDisplay[CL2 NMAG SK154>2]:%NAME% %GRAY%[%ORANGE%WCry%GRAY%]%WHITE%%CONTINUE%
@@ -280,6 +284,9 @@ ItemDisplay[(CL4 OR WP12 OR WP4) NMAG SK94>2]:%NAME% %GRAY%[%ORANGE%FGolem%GRAY%
 // None, uniques are better
 // Shields:
 // None, rares and magic items are better
+// Daggers:
+// Show PStrike (only Kris and Cinquedeas)
+ItemDisplay[(kri OR 9kr) NMAG (SOCK=3 OR SOCK=0) SK73>2]:%NAME% %GRAY%[%ORANGE%?%GRAY%]%WHITE%
 ItemDisplay[(CL4 OR WP12 OR WP4) NMAG FILTLVL<2 (SK381>1 OR SK80>1 OR SK89>1 OR SK70>1 OR SK92>1 OR SK84>1 OR SK74>1 OR SK67>1 OR SK73>1 OR SK94>1)]:%NAME% %GRAY%[%ORANGE%?%GRAY%]%WHITE%
 // - Sorceress Items -
 // Skill Orbs&Staves
@@ -517,20 +524,22 @@ ItemDisplay[fort]:%TAN%Orb of Fortification%DOT-0C%{Map}
 ItemDisplay[scrb]:%TAN%Dungeon Scarab%DOT-0C%{Map}
 // Guarantee Event
 ItemDisplay[iwss]:%TAN%Event Shard%DOT-0C%{Map}
+// Ears
+ItemDisplay[ivea OR ivez OR iveb OR ived OR iven OR ivep OR ives]:%TAN%%NAME%%DOT-0C%
 
 // Maps
 // White Maps
-// Hide magic T1 maps on higher filter
-ItemDisplay[FILTLVL>3 MAG (t22 OR t12 OR t23 OR t15 OR t26 OR t25 OR t36 OR t17)]:
-ItemDisplay[(t22 OR t12 OR t23 OR t15 OR t26 OR t25 OR t36 OR t17)]:%SOUNDID-4717%%NAME%%PURPLE%%MAP%%DOT-1f% %GRAY%[%ORANGE%T%WHITE%1%GRAY%]%WHITE%%CONTINUE%
+ItemDisplay[MAPTIER=1]:%SOUNDID-4717%%NAME%%PURPLE%%MAP%%DOT-1f% %GRAY%[%ORANGE%T%WHITE%1%GRAY%]%WHITE%%CONTINUE%
 // Yellow Maps
-ItemDisplay[(t11 OR t34 OR t31 OR t24 OR t33 OR t27 OR t28 OR t13)]:%SOUNDID-4717%%NAME%%PURPLE%%MAP%%DOT-69% %GRAY%[%ORANGE%T%YELLOW%2%GRAY%]%WHITE%%CONTINUE%
+ItemDisplay[MAPTIER=2]:%SOUNDID-4717%%NAME%%PURPLE%%MAP%%DOT-69% %GRAY%[%ORANGE%T%YELLOW%2%GRAY%]%WHITE%%CONTINUE%
 // Red Maps
-ItemDisplay[(t32 OR t14 OR t35 OR t16 OR t21 OR t37 OR t38 OR t39 OR t3a)]:%SOUNDID-4718%%NAME%%PURPLE%%MAP%%DOT-0a% %GRAY%[%ORANGE%T%RED%3%GRAY%]%WHITE%%CONTINUE%
-// Red+ Maps
-ItemDisplay[(t40 OR t41 OR t42 OR t43 OR t44 OR t45 OR t46 OR t47 OR t48 OR t49)]:%NAME%%PURPLE%%MAP% %GRAY%[%ORANGE%Dun%GRAY%]%WHITE%
+ItemDisplay[MAPTIER=3]:%SOUNDID-4718%%NAME%%PURPLE%%MAP%%DOT-0a% %GRAY%[%ORANGE%T%RED%3%GRAY%]%WHITE%%CONTINUE%
+// Dungeon Maps
+ItemDisplay[MAPTIER=4]:%NAME%%PURPLE%%MAP% %GRAY%[%ORANGE%Dun%GRAY%]%WHITE%
+// Unique Maps
+ItemDisplay[MAPTIER=5]:%NAME%%PURPLE%%MAP% %GRAY%[%ORANGE%Unique%GRAY%]%WHITE%
 // PvP Maps
-ItemDisplay[(t60 OR t61 OR t62 OR t63 OR t64 OR t65 OR t66 OR t67 OR t68 OR t69)]:%NAME%%PURPLE%%MAP% %GRAY%[%ORANGE%PvP%GRAY%]%WHITE%
+ItemDisplay[MAPTIER=0]:%NAME%%PURPLE%%MAP% %GRAY%[%ORANGE%PvP%GRAY%]%WHITE%
 
 // Essences
 // Twisted Essence of Suffering
@@ -850,106 +859,111 @@ ItemDisplay[ARMOR OR WEAPON OR JEWELRY OR jew OR CHARM OR QUIVER]:
 // Put here so that 99% of the items won't have to go through additional rules because of them
 
 // Stack Number
-ItemDisplay[QTY>1]:%NAME% %GRAY%(%WHITE%x%QTY%%GRAY%)%ORANGE%%CONTINUE%
+ItemDisplay[QTY>1]:%NAME% %GRAY%(%SAGE%x%QTY%%GRAY%)%ORANGE%%CONTINUE%
 
 // Gem Desciptions:
-ItemDisplay[gpvs]:%NAME%{%WHITE%Weapon: %ORANGE%Tir%BLUE% +1, FCR, Mana%NL%%WHITE%Shield: %ORANGE%Eth%BLUE% Blk, FCR, Mana%NL%%WHITE%Chest: %ORANGE%Tal%BLUE% FCR, Mana%NL%%WHITE%Belt: %ORANGE%Ith%BLUE% FCR, Mana%NL%%WHITE%Boots: %ORANGE%Thul%BLUE% Mana%, Mana%NL%%WHITE%Gloves: %ORANGE%Ort%BLUE% FCR, Mana%NL%%WHITE%Helm: %ORANGE%Nef%BLUE% FCR, Mana%NL%%WHITE%Ring: %ORANGE%Amn%BLUE% Energy, Mana%NL%%WHITE%Amulet: %ORANGE%Ral%BLUE% FCR, Mana%NL%}
-ItemDisplay[gpys]:%NAME%{%WHITE%Weapon: %ORANGE%Shael%BLUE% +1, MF%NL%%WHITE%Shield: %ORANGE%Dol%BLUE% Blk, MF%NL%%WHITE%Chest: %ORANGE%Eld%BLUE% MF%NL%%WHITE%Belt: %ORANGE%El%BLUE% MF%NL%%WHITE%Boots: %ORANGE%Io%BLUE% MF%NL%%WHITE%Gloves: %ORANGE%Hel%BLUE% MF%NL%%WHITE%Helm: %ORANGE%Tir%BLUE% MF%NL%%WHITE%Ring: %ORANGE%Lum%BLUE% MF, Vit%NL%%WHITE%Amulet: %ORANGE%Ko%BLUE% MF, Vit%NL%}
-ItemDisplay[gpbs]:%NAME%{%WHITE%Weapon: %ORANGE%Tir%BLUE% ED, -TDef%NL%%WHITE%Shield: %ORANGE%Eth%BLUE% Blk, FBR%NL%%WHITE%Chest: %ORANGE%Nef%BLUE% FHR%NL%%WHITE%Belt: %ORANGE%Tal%BLUE% FHR, DTGM%NL%%WHITE%Boots: %ORANGE%Ral%BLUE% FHR%NL%%WHITE%Gloves: %ORANGE%Ort%BLUE% Knockback, -TDef%NL%%WHITE%Helm: %ORANGE%Ith%BLUE% FHR, AR%NL%%WHITE%Ring: %ORANGE%Amn%BLUE% Dex, MDmg%NL%%WHITE%Amulet: %ORANGE%Thul%BLUE% FHR, AR%NL%}
-ItemDisplay[gpgs]:%NAME%{%WHITE%Weapon: %ORANGE%Sol%BLUE% ED, AS%NL%%WHITE%Shield: %ORANGE%Nef%BLUE% MRes, DR%NL%%WHITE%Chest: %ORANGE%Eth%BLUE% DR%NL%%WHITE%Belt: %ORANGE%Tal%BLUE% PRes, FDR%NL%%WHITE%Boots: %ORANGE%Ort%BLUE% FRes, FDR%NL%%WHITE%Gloves: %ORANGE%Ral%BLUE% CRes, FDR%NL%%WHITE%Helm: %ORANGE%Ith%BLUE% LRes, DR%NL%%WHITE%Ring: %ORANGE%Amn%BLUE% Vit, FDR%NL%%WHITE%Amulet: %ORANGE%Thul%BLUE% Blk, FDR%NL%}
-ItemDisplay[gprs]:%NAME%{%WHITE%Weapon: %ORANGE%Ort%BLUE% ED, LLeech, Life%NL%%WHITE%Shield: %ORANGE%Ith%BLUE% Blk, LLeech, Life%NL%%WHITE%Chest: %ORANGE%Thul%BLUE% LLeech, Life%NL%%WHITE%Belt: %ORANGE%Tal%BLUE% LLeech, Life, OW%NL%%WHITE%Boots: %ORANGE%Eth%BLUE% LLeech, Life%NL%%WHITE%Gloves: %ORANGE%Nef%BLUE% LLeech, Life, CB%NL%%WHITE%Helm: %ORANGE%Ral%BLUE% LLeech, Life, CB%NL%%WHITE%Ring: %ORANGE%Sol%BLUE% LLeech, Life, Str%NL%%WHITE%Amulet: %ORANGE%Amn%BLUE% FRW, Life%NL%}
-ItemDisplay[gpws]:%NAME%{%WHITE%Weapon: %ORANGE%Sol%BLUE% AS, ED-, AR%NL%%WHITE%Shield: %ORANGE%Ort%BLUE% Blk, AllRes, HalFreeze%NL%%WHITE%Chest: %ORANGE%El%BLUE% Blk, EDef, AllRes%NL%%WHITE%Belt: %ORANGE%Io%BLUE% AS, EDef, HalFreeze%NL%%WHITE%Boots: %ORANGE%Ko%BLUE% FRW, HalFreeze%NL%%WHITE%Gloves: %ORANGE%Shael%BLUE% AS, AR, EDef%NL%%WHITE%Helm: %ORANGE%Eld%BLUE% AS, EDef, HalFreeze%NL%%WHITE%Ring: %ORANGE%Hel%BLUE% AllRes, HalFreeze%NL%%WHITE%Amulet: %ORANGE%Tal%BLUE% AllAtt, AllRes%NL%}
-ItemDisplay[skzs]:%NAME%{%WHITE%Weapon: %ORANGE%Shael%BLUE% MLeech%NL%%WHITE%Shield: %ORANGE%Sol%BLUE% Blk, MLeech%NL%%WHITE%Chest: %ORANGE%Tir%BLUE% MLeech%NL%%WHITE%Belt: %ORANGE%Eld%BLUE% MLeech%NL%%WHITE%Boots: %ORANGE%El%BLUE% MLeech%NL%%WHITE%Gloves: %ORANGE%Io%BLUE% MLeech, DS%NL%%WHITE%Helm: %ORANGE%Lum%BLUE% MLeech, DS%NL%%WHITE%Ring: %ORANGE%Hel%BLUE% MLeech%NL%%WHITE%Amulet: %ORANGE%Dol%BLUE% MLeech, -Curse%NL%}
+ItemDisplay[gpv]:%NAME%{%WHITE%Weapon: %ORANGE%Tir%BLUE% +1, FCR, Mana%NL%%WHITE%Shield: %ORANGE%Eth%BLUE% Blk, FCR, Mana%NL%%WHITE%Chest: %ORANGE%Tal%BLUE% FCR, Mana%NL%%WHITE%Belt: %ORANGE%Ith%BLUE% FCR, Mana%NL%%WHITE%Boots: %ORANGE%Thul%BLUE% Mana%, Mana%NL%%WHITE%Gloves: %ORANGE%Ort%BLUE% FCR, Mana%NL%%WHITE%Helm: %ORANGE%Nef%BLUE% FCR, Mana%NL%%WHITE%Ring: %ORANGE%Amn%BLUE% Energy, Mana%NL%%WHITE%Amulet: %ORANGE%Ral%BLUE% FCR, Mana%NL%}
+ItemDisplay[gpy]:%NAME%{%WHITE%Weapon: %ORANGE%Shael%BLUE% +1, MF%NL%%WHITE%Shield: %ORANGE%Dol%BLUE% Blk, MF%NL%%WHITE%Chest: %ORANGE%Eld%BLUE% MF%NL%%WHITE%Belt: %ORANGE%El%BLUE% MF%NL%%WHITE%Boots: %ORANGE%Io%BLUE% MF%NL%%WHITE%Gloves: %ORANGE%Hel%BLUE% MF%NL%%WHITE%Helm: %ORANGE%Tir%BLUE% MF%NL%%WHITE%Ring: %ORANGE%Lum%BLUE% MF, Vit%NL%%WHITE%Amulet: %ORANGE%Ko%BLUE% MF, Vit%NL%}
+ItemDisplay[gpb]:%NAME%{%WHITE%Weapon: %ORANGE%Tir%BLUE% ED, -TDef%NL%%WHITE%Shield: %ORANGE%Eth%BLUE% Blk, FBR%NL%%WHITE%Chest: %ORANGE%Nef%BLUE% FHR%NL%%WHITE%Belt: %ORANGE%Tal%BLUE% FHR, FBR%NL%%WHITE%Boots: %ORANGE%Ral%BLUE% FHR%NL%%WHITE%Gloves: %ORANGE%Ort%BLUE% Knockback, -TDef%NL%%WHITE%Helm: %ORANGE%Ith%BLUE% Pierce, AR%NL%%WHITE%Ring: %ORANGE%Amn%BLUE% Dex, MDmg%NL%%WHITE%Amulet: %ORANGE%Thul%BLUE% Pierce, AR%NL%}
+ItemDisplay[gpg]:%NAME%{%WHITE%Weapon: %ORANGE%Sol%BLUE% ED, AS%NL%%WHITE%Shield: %ORANGE%Nef%BLUE% MRes, DR%NL%%WHITE%Chest: %ORANGE%Eth%BLUE% DR%NL%%WHITE%Belt: %ORANGE%Tal%BLUE% PRes, FDR%NL%%WHITE%Boots: %ORANGE%Ort%BLUE% FRes, FDR%NL%%WHITE%Gloves: %ORANGE%Ral%BLUE% CRes, FDR%NL%%WHITE%Helm: %ORANGE%Ith%BLUE% LRes, DR%NL%%WHITE%Ring: %ORANGE%Amn%BLUE% Vit, FDR%NL%%WHITE%Amulet: %ORANGE%Thul%BLUE% Blk, FDR%NL%}
+ItemDisplay[gpr]:%NAME%{%WHITE%Weapon: %ORANGE%Ort%BLUE% ED, LLeech, Life%NL%%WHITE%Shield: %ORANGE%Ith%BLUE% Blk, LLeech, Life%NL%%WHITE%Chest: %ORANGE%Thul%BLUE% LLeech, Life%NL%%WHITE%Belt: %ORANGE%Tal%BLUE% LLeech, Life, OW%NL%%WHITE%Boots: %ORANGE%Eth%BLUE% LLeech, Life, OW%NL%%WHITE%Gloves: %ORANGE%Nef%BLUE% LLeech, Life, CB%NL%%WHITE%Helm: %ORANGE%Ral%BLUE% LLeech, Life, CB%NL%%WHITE%Ring: %ORANGE%Sol%BLUE% LLeech, Life, Str%NL%%WHITE%Amulet: %ORANGE%Amn%BLUE% FRW, Life%NL%}
+ItemDisplay[gpw]:%NAME%{%WHITE%Weapon: %ORANGE%Sol%BLUE% AS, ED-, AR%NL%%WHITE%Shield: %ORANGE%Ort%BLUE% Blk, AllRes, HalFreeze%NL%%WHITE%Chest: %ORANGE%El%BLUE% Blk, EDef, AllRes%NL%%WHITE%Belt: %ORANGE%Io%BLUE% AS, EDef, HalFreeze%NL%%WHITE%Boots: %ORANGE%Ko%BLUE% FRW, HalFreeze%NL%%WHITE%Gloves: %ORANGE%Shael%BLUE% AS, AR, EDef%NL%%WHITE%Helm: %ORANGE%Eld%BLUE% AS, EDef, HalFreeze%NL%%WHITE%Ring: %ORANGE%Hel%BLUE% AllRes, HalFreeze%NL%%WHITE%Amulet: %ORANGE%Tal%BLUE% AllAtt, AllRes%NL%}
+ItemDisplay[skz]:%NAME%{%WHITE%Weapon: %ORANGE%Shael%BLUE% MLeech%NL%%WHITE%Shield: %ORANGE%Sol%BLUE% Blk, MLeech%NL%%WHITE%Chest: %ORANGE%Tir%BLUE% MLeech%NL%%WHITE%Belt: %ORANGE%Eld%BLUE% MLeech%NL%%WHITE%Boots: %ORANGE%El%BLUE% MLeech%NL%%WHITE%Gloves: %ORANGE%Io%BLUE% MLeech, DS%NL%%WHITE%Helm: %ORANGE%Lum%BLUE% MLeech, DS%NL%%WHITE%Ring: %ORANGE%Hel%BLUE% MLeech%NL%%WHITE%Amulet: %ORANGE%Dol%BLUE% MLeech, -Curse%NL%}
 
 // Rune Desciptions:
-ItemDisplay[r01s]:%NAME%{ }
-ItemDisplay[r02s]:%NAME%{ }
-ItemDisplay[r03s]:%NAME%{%GOLD%Steel %ORANGE%TirEl %WHITE%Sword Axe Mace Claw Throw%NL%}
-ItemDisplay[r04s]:%NAME%{%GOLD%Nadir %ORANGE%NefTir %WHITE%Helm%NL%}
-ItemDisplay[r05s]:%NAME%{ }
-ItemDisplay[r06s]:%NAME%{%GOLD%Malice %ORANGE%IthElEth %WHITE%Melee Throw%NL%}
-ItemDisplay[r07s]:%NAME%{%GOLD%Stealth %ORANGE%TalEth %WHITE%Armor%NL%}
-ItemDisplay[r08s]:%NAME%{%GOLD%Leaf %ORANGE%TirRal %WHITE%Stave%NL%}
-ItemDisplay[r09s]:%NAME%{%GOLD%Ancient's Pledge %ORANGE%RalOrtTal %WHITE%Shield%NL%%GOLD%Pattern %ORANGE%TalOrtTir %WHITE%Claw%NL%%GOLD%Holy Thunder %ORANGE%EthRalOrtTal %WHITE%Scepter%NL%%GOLD%Zephyr %ORANGE%OrtEth %WHITE%Missile Throw%NL%%GOLD%Ancient's Scripture %ORANGE%TalOrt %WHITE%Quiver%NL%}
-ItemDisplay[r10s]:%NAME%{%GOLD%Neophyte %ORANGE%ThulTir %WHITE%Orb Claw Scepter Club Stave%NL%%GOLD%Ancient's Foresight %ORANGE%RalThul %WHITE%Quiver%NL%}
-ItemDisplay[r11s]:%NAME%{%GOLD%Spirit %ORANGE%TalThulOrtAmn %WHITE%Sword Stave Shield%NL%%GOLD%King's Grace %ORANGE%AmnRalThul %WHITE%Scepter Sword Claw Throw%NL%%GOLD%Strength %ORANGE%AmnTir %WHITE%Melee Throw%NL%%GOLD%Edge %ORANGE%TirTalAmn %WHITE%Missile%NL%%GOLD%Purity %ORANGE%AmnEthThul %WHITE%Polearm Spear Stave Missile%NL%}
-ItemDisplay[r12s]:%NAME%{%GOLD%Lore %ORANGE%OrtSol %WHITE%Helm%NL%%GOLD%Radiance %ORANGE%NefSolIth %WHITE%Helm%NL%%GOLD%Honor %ORANGE%AmnElIthTirSol %WHITE%Melee%NL%%GOLD%Insight %ORANGE%RalTirTalSol %WHITE%Polearm Stave Spear %NL%}
-ItemDisplay[r13s]:%NAME%{%GOLD%Peace %ORANGE%ShaelThulAmn %WHITE%Armor%NL%%GOLD%Rhyme %ORANGE%ShaelEth %WHITE%Shield%NL%%GOLD%Rampage %ORANGE%ShaelElIthEth %WHITE%Polearm Spear Stave%NL%}
-ItemDisplay[r14s]:%NAME%{%GOLD%Echo %ORANGE%SolDol %WHITE%Throw Quiver%NL%}
-ItemDisplay[r15s]:%NAME%{%GOLD%Myth %ORANGE%HelAmnNef %WHITE%Armor%NL%}
-ItemDisplay[r16s]:%NAME%{%GOLD%Black %ORANGE%ThulIoNef %WHITE%Club Hammer Mace Claw%NL%%GOLD%White %ORANGE%DolIo %WHITE%Wand%NL%}
-ItemDisplay[r17s]:%NAME%{%GOLD%Smoke %ORANGE%NefLum %WHITE%Armor%NL%%GOLD%Splendor %ORANGE%EthLum %WHITE%Shield%NL%%GOLD%Memory %ORANGE%LumIoSolEth %WHITE%Stave%NL%}
-ItemDisplay[r18s]:%NAME%{%GOLD%Hustle %ORANGE%ShaelKoEld %WHITE%Armor%NL%%GOLD%Melody %ORANGE%ShaelKoNef %WHITE%Missile%NL%%GOLD%Harmony %ORANGE%TirIthSolKo %WHITE%Missile%NL%}
-ItemDisplay[r19s]:%NAME%{%GOLD%Lionheart %ORANGE%HelLumFal %WHITE%Armor%NL%%GOLD%Obedience %ORANGE%HelKoThulEthFal %WHITE%Polearm Spear Hammer%NL%%GOLD%Unbending Will %ORANGE%FalIoIthEldElHel %WHITE%Sword%NL%}
-ItemDisplay[r20s]:%NAME%{%GOLD%Treachery %ORANGE%ShaelThulLem %WHITE%Armor%NL%%GOLD%Wealth %ORANGE%LemKoTir %WHITE%Armor%NL%%GOLD%Passion %ORANGE%DolOrtEldLem %WHITE%Weapon%NL%%GOLD%Lawbringer %ORANGE%AmnLemKo %WHITE%Hammer Scepter Sword Claw Throw%NL%%GOLD%Voice of Reason %ORANGE%LemKoElEld %WHITE%Sword Mace Scepter Missile%NL%}
-ItemDisplay[r21s]:%NAME%{%GOLD%Wisdom %ORANGE%PulIthEld %WHITE%Helm%NL%%GOLD%Enlightenment %ORANGE%PulRalSol %WHITE%Armor%NL%%GOLD%Loyalty %ORANGE%PulTirDol %WHITE%Polearm Spear Missile%NL%}
-ItemDisplay[r22s]:%NAME%{%GOLD%Stone %ORANGE%ShaelUmPulLum %WHITE%Armor%NL%%GOLD%Duress %ORANGE%ShaelUmThul %WHITE%Armor%NL%%GOLD%Bone %ORANGE%SolUmUm %WHITE%Armor%NL%%GOLD%Crescent Moon %ORANGE%ShaelUmTir %WHITE%Axe Sword Scepter Polearm Spear Claw Throw%NL%%GOLD%Gloom %ORANGE%FalUmPul %WHITE%Armor%NL%}
-ItemDisplay[r23s]:%NAME%{%GOLD%Prudence %ORANGE%MalTir %WHITE%Armor%NL%%GOLD%Rain %ORANGE%OrtMalIth %WHITE%Armor%NL%%GOLD%Sanctuary %ORANGE%KoKoMal %WHITE%Shield%NL%%GOLD%Venom %ORANGE%TalDolMal %WHITE%Weapon%NL%%GOLD%Oath %ORANGE%ShaelPulMalLum %WHITE%Sword Axe Mace%NL%}
-ItemDisplay[r24s]:%NAME%{%GOLD%Delirium %ORANGE%LemIstIo %WHITE%Helm%NL%}
-ItemDisplay[r25s]:%NAME%{%GOLD%Principle %ORANGE%RalGulEld %WHITE%Armor%NL%%GOLD%Kingslayer %ORANGE%MalUmGulFal %WHITE%Sword Axe%NL%%GOLD%Rift %ORANGE%HelKoLemGul %WHITE%Polearm Scepter Spear Sword%NL%}
-ItemDisplay[r26s]:%NAME%{%GOLD%Flickering Flame %ORANGE%NefPulVex %WHITE%Helm%NL%%GOLD%Silence %ORANGE%DolEldHelIstTirVex %WHITE%Weapon%NL%%GOLD%Heart of the Oak %ORANGE%KoVexPulThul %WHITE%Stave Mace%NL%%GOLD%Death %ORANGE%HelElVexOrtGul %WHITE%Sword Axe%NL%}
-ItemDisplay[r27s]:%NAME%{%GOLD%Exile %ORANGE%VexOhmIstDol %WHITE%Shield%NL%%GOLD%Call to Arms %ORANGE%AmnRalMalIstOhm %WHITE%Weapon%NL%%GOLD%Chaos %ORANGE%FalOhmUm %WHITE%Claw%NL%}
-ItemDisplay[r28s]:%NAME%{%GOLD%Fortitude %ORANGE%ElSolDolLo %WHITE%Armor, Weapon%NL%%GOLD%Grief %ORANGE%EthTirLoMalRal %WHITE%Sword Axe Polearm %NL%%GOLD%Epiphany %ORANGE%LoIthLoIst %WHITE%Shield %NL%}
-ItemDisplay[r29s]:%NAME%{%GOLD%Bramble %ORANGE%RalOhmSurEth %WHITE%Armor%NL%%GOLD%Dragon %ORANGE%SurLoSol %WHITE%Armor, Shield%NL%%GOLD%Wind %ORANGE%SurEl %WHITE%Melee Throw%NL%}
-ItemDisplay[r30s]:%NAME%{%GOLD%Chains of Honor %ORANGE%DolUmBerIst %WHITE%Armor%NL%%GOLD%Beast %ORANGE%BerTirUmMalLum %WHITE%Axe Scepter Hammer Stave%NL%%GOLD%Eternity %ORANGE%AmnBerIstSolSur %WHITE%Melee%NL%%GOLD%Infinity %ORANGE%BerMalBerIst %WHITE%Polearm Spear Stave%NL%%GOLD%Wrath %ORANGE%PulLemBerMal %WHITE%Missile%NL%}
-ItemDisplay[r31s]:%NAME%{%GOLD%Enigma %ORANGE%JahIthBer %WHITE%Armor%NL%%GOLD%Dream %ORANGE%IoJahPul %WHITE%HelmShld%NL%%GOLD%Phoenix %ORANGE%VexVexLoJah %WHITE%WpnShld%NL%%GOLD%Fury %ORANGE%JahGulEth %WHITE%Melee Throw%NL%%GOLD%Famine %ORANGE%FalOhmOrtJah %WHITE%AxHmrSwrd%NL%%GOLD%Brand %ORANGE%JahLoMalGul %WHITE%Missile%NL%%GOLD%Destruction %ORANGE%VexLoBerJahKo %WHITE%PoleSwrdSpear%NL%%GOLD%Faith %ORANGE%OhmJahLemEld %WHITE%Missile%NL%%GOLD%Ice %ORANGE%AmnShaelJahLo %WHITE%Missile%NL%%GOLD%Last Wish %ORANGE%JahMalJahSurJahBer %WHITE%AxHmrSwrd%NL%%GOLD%Rapture %ORANGE%VexJahLoRalKoMal %WHITE%Hmr%NL%}
-ItemDisplay[r32s]:%NAME%{%GOLD%Dominion %ORANGE%ChamOhm %WHITE%Wand%NL%%GOLD%Mist %ORANGE%ChamShaelGulThulIth %WHITE%Missle%NL%%GOLD%Plague %ORANGE%ChamFalUm %WHITE%Weapon Throw%NL%%GOLD%Doom %ORANGE%HelOhmUmLoCham %WHITE%Axe Sword Hammer Polearm Spear Scepter Stave%NL%%GOLD%Pride %ORANGE%ChamSurIoLo %WHITE%Polearm Spear Stave%NL%%GOLD%Hand of Justice %ORANGE%SurChamAmnLo %WHITE%Weapon%NL%%GOLD%Asylum %ORANGE%GulChamHelJahDolUm %WHITE%Stave Mace Hammer Bow Polearm Spear%NL%}
-ItemDisplay[r33s]:%NAME%{%GOLD%Ferocity %ORANGE%ZodChamShael %WHITE%Helm%NL%%GOLD%Innocence %ORANGE%GulLemZodHel %WHITE%Armor%NL%%GOLD%Shattered Wall %ORANGE%ZodJahRalCham %WHITE%Paladin Shield%NL%%GOLD%Breath of the Dying %ORANGE%VexHelElEldZodEth %WHITE%Weapon%NL%%GOLD%Obsession %ORANGE%ZodIstLemLumIoNef %WHITE%Stave%NL%%GOLD%Zenith %ORANGE%JahZodOrtThulRal %WHITE%2HSword Polearm Spear Stave Missile%NL%}
+ItemDisplay[r01]:%NAME%{ }
+ItemDisplay[r02]:%NAME%{ }
+ItemDisplay[r03]:%NAME%{%GOLD%Steel %ORANGE%TirEl %WHITE%Sword Axe Mace Claw Throw%NL%}
+ItemDisplay[r04]:%NAME%{%GOLD%Nadir %ORANGE%NefTir %WHITE%Helm%NL%}
+ItemDisplay[r05]:%NAME%{ }
+ItemDisplay[r06]:%NAME%{%GOLD%Malice %ORANGE%IthElEth %WHITE%Melee Throw%NL%}
+ItemDisplay[r07]:%NAME%{%GOLD%Stealth %ORANGE%TalEth %WHITE%Armor%NL%}
+ItemDisplay[r08]:%NAME%{%GOLD%Leaf %ORANGE%TirRal %WHITE%Stave%NL%}
+ItemDisplay[r09]:%NAME%{%GOLD%Ancient's Pledge %ORANGE%RalOrtTal %WHITE%Shield%NL%%GOLD%Pattern %ORANGE%TalOrtTir %WHITE%Claw%NL%%GOLD%Holy Thunder %ORANGE%EthRalOrtTal %WHITE%Scepter%NL%%GOLD%Zephyr %ORANGE%OrtEth %WHITE%Missile Throw%NL%%GOLD%Ancient's Scripture %ORANGE%TalOrt %WHITE%Quiver%NL%}
+ItemDisplay[r10]:%NAME%{%GOLD%Neophyte %ORANGE%ThulTir %WHITE%Orb Claw Scepter Club Stave%NL%%GOLD%Ancient's Foresight %ORANGE%RalThul %WHITE%Quiver%NL%}
+ItemDisplay[r11]:%NAME%{%GOLD%Spirit %ORANGE%TalThulOrtAmn %WHITE%Sword Stave Shield%NL%%GOLD%King's Grace %ORANGE%AmnRalThul %WHITE%Scepter Sword Claw Throw%NL%%GOLD%Strength %ORANGE%AmnTir %WHITE%Melee Throw%NL%%GOLD%Edge %ORANGE%TirTalAmn %WHITE%Missile%NL%%GOLD%Purity %ORANGE%AmnEthThul %WHITE%Polearm Spear Stave Missile%NL%}
+ItemDisplay[r12]:%NAME%{%GOLD%Lore %ORANGE%OrtSol %WHITE%Helm%NL%%GOLD%Radiance %ORANGE%NefSolIth %WHITE%Helm%NL%%GOLD%Honor %ORANGE%AmnElIthTirSol %WHITE%Melee%NL%%GOLD%Insight %ORANGE%RalTirTalSol %WHITE%Polearm Stave Spear %NL%}
+ItemDisplay[r13]:%NAME%{%GOLD%Peace %ORANGE%ShaelThulAmn %WHITE%Armor%NL%%GOLD%Rhyme %ORANGE%ShaelEth %WHITE%Shield%NL%%GOLD%Rampage %ORANGE%ShaelElIthEth %WHITE%Polearm Spear Stave%NL%}
+ItemDisplay[r14]:%NAME%{%GOLD%Finesse %ORANGE%NefRalDol %WHITE%Armor%NL%%GOLD%Echo %ORANGE%SolDol %WHITE%Throw Quiver%NL%}
+ItemDisplay[r15]:%NAME%{%GOLD%Myth %ORANGE%HelAmnNef %WHITE%Armor%NL%}
+ItemDisplay[r16]:%NAME%{%GOLD%Black %ORANGE%ThulIoNef %WHITE%Club Hammer Mace Claw%NL%%GOLD%White %ORANGE%DolIo %WHITE%Wand%NL%}
+ItemDisplay[r17]:%NAME%{%GOLD%Smoke %ORANGE%NefLum %WHITE%Armor%NL%%GOLD%Splendor %ORANGE%EthLum %WHITE%Shield%NL%%GOLD%Memory %ORANGE%LumIoSolEth %WHITE%Stave%NL%}
+ItemDisplay[r18]:%NAME%{%GOLD%Hustle %ORANGE%ShaelKoEld %WHITE%Armor%NL%%GOLD%Melody %ORANGE%ShaelKoNef %WHITE%Missile%NL%%GOLD%Harmony %ORANGE%TirIthSolKo %WHITE%Missile%NL%}
+ItemDisplay[r19]:%NAME%{%GOLD%Lionheart %ORANGE%HelLumFal %WHITE%Armor%NL%%GOLD%Obedience %ORANGE%HelKoThulEthFal %WHITE%Polearm Spear Hammer%NL%%GOLD%Unbending Will %ORANGE%FalIoIthEldElHel %WHITE%Sword%NL%}
+ItemDisplay[r20]:%NAME%{%GOLD%Treachery %ORANGE%ShaelThulLem %WHITE%Armor%NL%%GOLD%Wealth %ORANGE%LemKoTir %WHITE%Armor%NL%%GOLD%Passion %ORANGE%DolOrtEldLem %WHITE%Weapon%NL%%GOLD%Lawbringer %ORANGE%AmnLemKo %WHITE%Hammer Scepter Sword Claw Throw%NL%%GOLD%Voice of Reason %ORANGE%LemKoElEld %WHITE%Sword Mace Scepter Missile%NL%}
+ItemDisplay[r21]:%NAME%{%GOLD%Wisdom %ORANGE%PulIthEld %WHITE%Helm%NL%%GOLD%Enlightenment %ORANGE%PulRalSol %WHITE%Armor%NL%%GOLD%Loyalty %ORANGE%PulTirDol %WHITE%Polearm Spear Missile%NL%}
+ItemDisplay[r22]:%NAME%{%GOLD%Stone %ORANGE%ShaelUmPulLum %WHITE%Armor%NL%%GOLD%Duress %ORANGE%ShaelUmThul %WHITE%Armor%NL%%GOLD%Bone %ORANGE%SolUmUm %WHITE%Armor%NL%%GOLD%Crescent Moon %ORANGE%ShaelUmTir %WHITE%Axe Sword Scepter Polearm Spear Claw Throw%NL%%GOLD%Gloom %ORANGE%FalUmPul %WHITE%Armor%NL%}
+ItemDisplay[r23]:%NAME%{%GOLD%Prudence %ORANGE%MalTir %WHITE%Armor%NL%%GOLD%Rain %ORANGE%OrtMalIth %WHITE%Armor%NL%%GOLD%Sanctuary %ORANGE%KoKoMal %WHITE%Shield%NL%%GOLD%Venom %ORANGE%TalDolMal %WHITE%Weapon%NL%%GOLD%Oath %ORANGE%ShaelPulMalLum %WHITE%Sword Axe Mace%NL%}
+ItemDisplay[r24]:%NAME%{%GOLD%Delirium %ORANGE%LemIstIo %WHITE%Helm%NL%}
+ItemDisplay[r25]:%NAME%{%GOLD%Principle %ORANGE%RalGulEld %WHITE%Armor%NL%%GOLD%Kingslayer %ORANGE%MalUmGulFal %WHITE%Sword Axe%NL%%GOLD%Rift %ORANGE%HelKoLemGul %WHITE%Polearm Scepter Spear Sword%NL%}
+ItemDisplay[r26]:%NAME%{%GOLD%Madness %ORANGE%SurMalVexShael %WHITE%Weapon%NL%%GOLD%Flickering Flame %ORANGE%NefPulVex %WHITE%Helm%NL%%GOLD%Silence %ORANGE%DolEldHelIstTirVex %WHITE%Weapon%NL%%GOLD%Heart of the Oak %ORANGE%KoVexPulThul %WHITE%Stave Mace%NL%%GOLD%Death %ORANGE%HelElVexOrtGul %WHITE%Sword Axe%NL%}
+ItemDisplay[r27]:%NAME%{%GOLD%Exile %ORANGE%VexOhmIstDol %WHITE%Shield%NL%%GOLD%Call to Arms %ORANGE%AmnRalMalIstOhm %WHITE%Melee Weapon%NL%%GOLD%Chaos %ORANGE%FalOhmUm %WHITE%Claw%NL%}
+ItemDisplay[r28]:%NAME%{%GOLD%Jealousy %ORANGE%LoGulThul %WHITE%Amazon Throwing%NL%%GOLD%Fortitude %ORANGE%ElSolDolLo %WHITE%Armor, Weapon%NL%%GOLD%Grief %ORANGE%EthTirLoMalRal %WHITE%Sword Axe Polearm %NL%%GOLD%Epiphany %ORANGE%LoIthLoIst %WHITE%Shield %NL%}
+ItemDisplay[r29]:%NAME%{%GOLD%Bramble %ORANGE%RalOhmSurEth %WHITE%Armor%NL%%GOLD%Dragon %ORANGE%SurLoSol %WHITE%Armor, Shield%NL%%GOLD%Wind %ORANGE%SurEl %WHITE%Melee Throw%NL%}
+ItemDisplay[r30]:%NAME%{%GOLD%Chains of Honor %ORANGE%DolUmBerIst %WHITE%Armor%NL%%GOLD%Beast %ORANGE%BerTirUmMalLum %WHITE%Axe Scepter Hammer Stave%NL%%GOLD%Eternity %ORANGE%AmnBerIstSolSur %WHITE%Melee%NL%%GOLD%Infinity %ORANGE%BerMalBerIst %WHITE%Polearm Spear Stave%NL%%GOLD%Wrath %ORANGE%PulLemBerMal %WHITE%Missile%NL%}
+ItemDisplay[r31]:%NAME%{%GOLD%Enigma %ORANGE%JahIthBer %WHITE%Armor%NL%%GOLD%Dream %ORANGE%IoJahPul %WHITE%HelmShld%NL%%GOLD%Phoenix %ORANGE%VexVexLoJah %WHITE%WpnShld%NL%%GOLD%Fury %ORANGE%JahGulEth %WHITE%Melee Throw%NL%%GOLD%Famine %ORANGE%FalOhmOrtJah %WHITE%AxHmrSwrd%NL%%GOLD%Brand %ORANGE%JahLoMalGul %WHITE%Missile%NL%%GOLD%Destruction %ORANGE%VexLoBerJahKo %WHITE%PoleSwrdSpear%NL%%GOLD%Faith %ORANGE%OhmJahLemEld %WHITE%Missile%NL%%GOLD%Ice %ORANGE%AmnShaelJahLo %WHITE%Missile%NL%%GOLD%Last Wish %ORANGE%JahMalJahSurJahBer %WHITE%AxHmrSwrd%NL%%GOLD%Rapture %ORANGE%VexJahLoRalKoMal %WHITE%Hmr%NL%}
+ItemDisplay[r32]:%NAME%{%GOLD%Dominion %ORANGE%ChamOhm %WHITE%Wand%NL%%GOLD%Mist %ORANGE%ChamShaelGulThulIth %WHITE%Missle%NL%%GOLD%Plague %ORANGE%ChamFalUm %WHITE%Weapon Throw%NL%%GOLD%Doom %ORANGE%HelOhmUmLoCham %WHITE%Axe Sword Hammer Polearm Spear Scepter Stave%NL%%GOLD%Pride %ORANGE%ChamSurIoLo %WHITE%Polearm Spear Stave%NL%%GOLD%Hand of Justice %ORANGE%SurChamAmnLo %WHITE%Weapon%NL%%GOLD%Asylum %ORANGE%GulChamHelJahDolUm %WHITE%Stave Mace Hammer Bow Polearm Spear%NL%}
+ItemDisplay[r33]:%NAME%{%GOLD%Ferocity %ORANGE%ZodChamShael %WHITE%Helm%NL%%GOLD%Innocence %ORANGE%GulLemZodHel %WHITE%Armor%NL%%GOLD%Shattered Wall %ORANGE%ZodJahRalCham %WHITE%Paladin Shield%NL%%GOLD%Breath of the Dying %ORANGE%VexHelElEldZodEth %WHITE%Weapon%NL%%GOLD%Obsession %ORANGE%ZodIstLemLumIoNef %WHITE%Stave%NL%%GOLD%Zenith %ORANGE%JahZodOrtThulRal %WHITE%2HSword Polearm Spear Stave Missile%NL%}
 
 // Map Descriptions:
-// T1
-// Arreat Battlefield
-ItemDisplay[t23]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Lightning Immunes}
-// Fall of Caldeum
-ItemDisplay[t36]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Cold Immunes}
-// Horazon's Memery
-ItemDisplay[t12]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Cold Immunes}
-// Royal Crypts
-ItemDisplay[t15]:%NAME%{%GOLD%Has Cold Immunes%NL%Has Poison Immunes%NL%Has Magic Immunes}
-// Sewers of Harrogath
-ItemDisplay[t25]:%NAME%{%GOLD%Has Poison Immunes%NL%Has Lightning Immunes}
-// Shadows of Westmarch
-ItemDisplay[t26]:%NAME%{%GOLD%Has Poison Immunes%NL%Has Physical Immunes}
-// Torajan Jungle
-ItemDisplay[t22]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Lightning Immunes}
-// Halls of Torture
-ItemDisplay[t17]:%NAME%{ }
 
-// T2
-// Bastion Keep
-ItemDisplay[t13]:%NAME%{%GOLD%Has Cold Immunes%NL%Has Physical Immunes%NL%Has Fire Immunes}
 // Ancestral Trial
-ItemDisplay[t34]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Poison Immunes}
+ItemDisplay[t34]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Fire Immunes}
+// Fall of Caldeum
+ItemDisplay[t36]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Physical Immunes%NL%Has Magic Immunes}
 // Lost Temple
-ItemDisplay[t33]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Cold Immunes}
-// River of Blood
-ItemDisplay[t31]:%NAME%{%GOLD%Has Poison Immunes%NL%Has Cold Immunes%NL%Has Magic Immunes}
-// Ruins of Viz-Jun
-ItemDisplay[t11]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Fire Immunes}
-// Tomb of Zoltan Kulle
-ItemDisplay[t24]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Poison Immunes%NL%Has Physical Immunes}
-// Demon Road
-ItemDisplay[t27]:%NAME%{%GOLD%Has Cold Immunes%NL%Has Poison Immunes}
-// Skovos Stronghold
-ItemDisplay[t28]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Fire Immunes%NL%Has Physical Immunes}
-
-
-// T3
-// Ashen Plains
-ItemDisplay[t3a]:%NAME%{%GOLD%Has Cold Immunes%NL%Has Poison Immunes%NL%Has Magic Immunes}
-// Blood Moon
-ItemDisplay[t35]:%NAME%{%NAME%}
-// Canyon of Sescheron
-ItemDisplay[t38]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Poison Immunes%NL%Has Physical Immunes}
-// Kekistan Marketplace
-ItemDisplay[t39]:%NAME%{%GOLD%Has Cold Immunes%NL%Has Poison Immunes%NL%Has Fire Immunes}
-// Pandemonium Citadel
-ItemDisplay[t37]:%NAME%{%GOLD%Has Poison Immunes%NL%Has Lightning Immunes%NL%Has Physical Immunes}
+ItemDisplay[t33]:%NAME%{%GOLD%Has Magic Immunes%NL%Has Cold Immunes}
 // Phlegethon
-ItemDisplay[t21]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Lightning Immunes}
+ItemDisplay[t21]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Poison Immunes}
+// Poisoned Well
+ItemDisplay[t18]:%NAME%{}
+// Shadows of Westmarch
+ItemDisplay[t26]:%NAME%{%GOLD%Has Magic Immunes%NL%Has Fire Immunes}
+// Tomb of Zoltan Kulle
+ItemDisplay[t24]:%NAME%{%GOLD%Has Poison Immunes%NL%Has Physical Immunes}
+// Torajan Jungle
+ItemDisplay[t22]:%NAME%{%GOLD%Has Cold Immunes%NL%Has Poison Immunes}
+// Ruins of Viz-Jun
+ItemDisplay[t11]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Cold Immunes%NL%Has Physical Immunes}
+
+// Ashen Plains
+ItemDisplay[t3a]:%NAME%{%GOLD%Has Cold Immunes%NL%Has Fire Immunes}
+// Canyon of Sescheron
+ItemDisplay[t38]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Physical Immunes}
+// Descent from Mount Arreat
+ItemDisplay[t2a]:%NAME%{}
+// Fortress of Aranoch
+ItemDisplay[t29]:%NAME%{}
+// Halls of Torture
+ItemDisplay[t17]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Cold Immunes}
+// Horazon's Memery
+ItemDisplay[t12]:%NAME%{%GOLD%Has Physical Immunes%NL%Has Lightning Immunes}
+// Pandemonium Citadel
+ItemDisplay[t37]:%NAME%{%GOLD%Has Magic Immunes%NL%Has Cold Immunes}
 // Ruined Cistern
-ItemDisplay[t16]:%NAME%{%GOLD%Has Cold Immunes%NL%Has Lightning Immunes%NL%Has Magic Immunes}
+ItemDisplay[t16]:%NAME%{%GOLD%Has Magic Immunes%NL%Has Poison Immunes}
 // Sanatorium
-ItemDisplay[t14]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Poison Immunes}
+ItemDisplay[t14]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Magic Immunes}
+// Sewers of Harrogath
+ItemDisplay[t25]:%NAME%{%GOLD%Has Poison Immunes%NL%Has Fire Immunes}
 // Throne of Insanity
-ItemDisplay[t32]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Cold Immunes}
+ItemDisplay[t32]:%NAME%{%GOLD%Has Physical Immunes%NL%Has Poison Immunes}
+
+// Arreat Battlefield
+ItemDisplay[t23]:%NAME%{%GOLD%Has Magic Immunes%NL%Has Lightning Immunes%NL%Has Poison Immunes}
+// Bastion Keep
+ItemDisplay[t13]:%NAME%{%GOLD%Has Magic Immunes%NL%Has Physical Immunes%NL%Has Cold Immunes}
+// Blood Moon
+ItemDisplay[t35]:%NAME%{}
+// Demon Road
+ItemDisplay[t27]:%NAME%{%GOLD%Has Physical Immunes%NL%Has Fire Immunes%NL%Has Lightning Immunes}
+// Kekistan Marketplace
+ItemDisplay[t39]:%NAME%{%GOLD%Has Physical Immunes%NL%Has Fire Immunes}
+// Kyovashad
+ItemDisplay[t3b]:%NAME%{}
+// River of Blood
+ItemDisplay[t31]:%NAME%{%GOLD%Has Lightning Immunes%NL%Has Poison Immunes%NL%Has Magic Immunes}
+// Royal Crypts
+ItemDisplay[t15]:%NAME%{%GOLD%Has Fire Immunes%NL%Has Cold Immunes}
+// Skovos Stronghold
+ItemDisplay[t28]:%NAME%{%GOLD%Has Cold Immunes%NL%Has Poison Immunes}
